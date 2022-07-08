@@ -69,8 +69,8 @@ function createTable($servername, $username, $password, $database)
 }
 
 //call functions
-createDatabase($servername, $username, $password);
-createTable($servername, $username, $password, $database);
+// createDatabase($servername, $username, $password);
+// createTable($servername, $username, $password, $database);
 
 
 //Connect database
@@ -85,7 +85,7 @@ try {
  * Check if the variable is set to 
  * Insert name,surname,email and password
  */
-if ($_POST['addID'] && $_POST['name'] && $_POST['surname'] && $_POST['email'] && $_POST['password']) {
+if (isset($_POST['addID']) && $_POST['name'] && $_POST['surname'] && $_POST['email'] && $_POST['password']) {
     $person = new Person($_POST['name'], $_POST['surname'], $_POST['email'],  PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT));
     $person->addPerson();
 }
@@ -111,8 +111,8 @@ if (isset($_POST['editID'])) {
 
 if (isset($_POST['updatePersonID'])) {
     $id =  $_POST['updatePersonID'];
-    $person = new Person();
-    $person->updatePerson($id, $_POST['name'], $_POST['surname'], $_POST['email'],  PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT));
+    $person = new Person($_POST['name'], $_POST['surname'], $_POST['email'],  PASSWORD_HASH($_POST["password"], PASSWORD_DEFAULT));
+    $person->updatePerson($id);
 }
 
 /**
@@ -183,12 +183,12 @@ class Person
      * @param $id
      * @return INT
      */
-    function updatePerson($id, $name, $surname, $email, $password)
+    function updatePerson($id)
     {
         $status = 0;
-        if ($name && $surname && $email && $password) {
+        if ($this->name && $this->surname && $this->email && $this->password) {
             $statment = $GLOBALS['DB']->prepare("UPDATE `$this->table` SET name=?,surname=?,email=?,password=? WHERE id=$id");
-            $status = $statment->execute(array($name, $surname, $email, $password));
+            $status = $statment->execute(array($this->name, $this->surname, $this->email, $this->password));
         }
         return $status;
     }
