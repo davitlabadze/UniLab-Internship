@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+form {
+
+    justify-content: center;
+    text-align-last: 20px;
+    padding: 20px;
+    width: 50%;
+    transform: translate(50%);
+
+    text-align: center;
+    display: flex;
+}
+
+label {
+    font-family: arial, sans-serif;
+    display: block;
+}
+
+input {
+    display: inline;
+    padding: 5px 20px;
+    margin-right: 5px;
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    transform: translate(25%);
+
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.addbutton {
+    margin-left: 12px;
+    background: green;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px greenyellow;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.addbutton:hover {
+    background: #018749;
+}
+
+.editButton {
+    background: #00ff;
+    box-shadow: 2px 2px 2px steelblue;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: hidden;
+    cursor: pointer;
+}
+
+.updatebutton {
+    margin-left: 12px;
+    background: blue;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px steelblue;
+    color: #fff;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.updatebutton:hover {
+    background: #1a84b8;
+}
+
+.deleteButton {
+    background: #ff0000;
+    box-shadow: 2px 2px 2px salmon;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 20px;
+    border: hidden;
+    cursor: pointer;
+}
